@@ -7,11 +7,11 @@ export default () => (
     <p>
     <h3>Where I'm at:</h3>
     <ul>
-        <li>Obese (185 lbs @ 5'4")</li>
+        <li>Borderline obese (with some muscle) (180 lbs @ 5'4")</li>
         <li>Programming skills: beginner (uncompleted intro courses, JS bootcamp)</li>
         <li>Highschool dropout</li>
-        <li>Little to no achievements to my name. Skillsets near 0.</li>
-        <li>Coward. Non-confrontational</li>
+        <li>Value: Accomplished, mastery in systems and probabilistic modeling. ATM: check [link to goals] (move tools in principles to goals?)</li>
+        <li>Value: Speaking my truth; standing up for my values. ATM: More confrontational than before, open to speaking my mind.</li>
         <li></li>
     </ul>
 <br/>

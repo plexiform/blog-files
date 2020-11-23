@@ -3,14 +3,25 @@
   max-width: 600px;
 }
 
+.body {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 810px;
+    color:darkslateblue;
+}
+
 .link {
-    color:white;
+    color:mintcream;
     text-decoration:none;
     padding:7px;
     text-hover: black;
 }
 
 .link:hover {
-    background-color:white;
-    color:black;
+    background-color:lightblue;
+    color:darkslateblue;
+}
+
+.thistle {
+    color:thistle;
 }

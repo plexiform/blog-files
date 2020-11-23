@@ -39,8 +39,6 @@ Online, I'll be the bard around the campfire, sharing cultural tales through dat
       <div style={{
         display: 'inline-block',
         maxWidth:310,
-        marginTop:100,
-        maxHeight:500,
         overflow:'auto'
       }}>
         <div>
@@ -52,6 +50,7 @@ Online, I'll be the bard around the campfire, sharing cultural tales through dat
           ✘ Dataquest.io <hr/>
           ✘ Math for CS <hr/>
           ✘ Bayesian for Hackers <hr/>
+          ✘ Think Stats/Bayes Python <hr/>
           ✘ Calc 1 <hr/>
           ✘ JavaScript + three.js course (check emails) <hr/>
           ✘ 8.01 <hr/>

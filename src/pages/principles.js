@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
-
+import styles from "../components/container.module.css"
 export default () => {
   return (
     <Layout>
@@ -24,6 +24,7 @@ export default () => {
         <ul>
       <li>Facts, beauty, and peace</li>
       <li>Competence</li>
+          <li>Childlike learning!!</li>
           <li>*Self*-growth and *self*-mastery</li>
           <li>Speaking my truth</li>
           <li>Excellence in whatever endeavor I pursue</li>
@@ -42,9 +43,9 @@ export default () => {
       <h2>& their streak in days (including sticking to "what I planned")</h2><br/><h3>Reset condition: 2 day lapse</h3> <br/>
       <div style={{ float:`right`}}>
       <p style={{fontSize:200}}>
-      +00
+      <b className={styles.thistle}>+</b>00
        </p>
-      <h4>Days overcoming fear of commitment</h4>
+      <h4>Days overcoming fear, starting, commiting</h4>
       <h4>Journaling end of day, to mold my story</h4>
       <h4>Writing what I learn</h4>
       <h4>Mental health and happiness routine</h4>
@@ -59,6 +60,7 @@ export default () => {
 <br/><br/>
         <ul>
       <li>Model your heroes, your platonic ideals</li>
+      <li>Iterate towards perfection</li>
       <li>Who are you? Overcome your fears, your demons, whether they manifest as avoidance or fatigue or whatever else</li>
           <li><i>Put forth the effort and leave the rest to fate</i></li>
           <li><i>Keep your promises</i></li>
