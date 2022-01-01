@@ -1,0 +1,124 @@
+---
+title: "Education"
+date: 2021-02-03
+tags: ["development_policy"]
+published: true
+---
+
+Parents' perceptions of their progeny's prospects persuade their preferences. Perhaps they think investing in education now will bring higher wages twenty years from now. Perhaps they want their children to take care of them in their old age. If their child is a girl, they may want to empower her in a social fabric designed against her. This might range from bettering her marriage prospects and household bargaining power to wanting her to be wholly independent (in the developing world?). They *may* be acting on second-order reasons for investing in their children's education, such as inculcating a sense of national pride or wanting to better their community. After all, there exist externalities aplenty for being educated.
+
+There are other spillover effects that may have nothing to do with a parent's intentions. An educated person may influence societal norms and empower the people around them. They might start a business and hire so many workers. They may learn to think critically, see through the media's veneer, and start a revolution. Who knows? Perhaps they simply get brainwashed.
+
+What does the evidence say?
+
+In developing countries, education is certainly positively correlated with wages and voting rates. It's negatively correlated with pregnancy and infant mortality rates. But are these causative? If you're from a wealthy family, you may invest more in education or be better connected. There could be a third variable that correlates with both wage and education, such as innate drive or intelligence. There may be less obvious connections as well. For example, perhaps you're compelled to vote because your family is well-connected to local policymakers. Such a family may *believe* in the benefits of education and stress education all the more. Or, maybe those public-facing positions are a direct result of being more educated after all. Though if this were the case, there would still be the question of whether one's education is useful beyond signaling.
+
+A randomized control trial is ideal for separating cause from effect. But how do we randomize education?
+
+The difficulty with randomizing education is that even if you assign people more education, they don't have to adhere to the assignment. You can't make 'em do nuffink. If we attempt to observe variations in education, a) there will often be reasons *for* and thus biases *in* that variation (e.g. lower attendance as a result of worms) and b) more education for one student might be offset by less from another.
+
+So we want to nudge education through some other means. We could provide transportation to school, offer scholarships, or introduce students to role models. If something can vary education without also *directly* influencing the outcome of interest, such as cognitive test scores, we call it an instrument.
+
+A randomized experiment was run in Ghana in which top-performers in an exam for secondary school were offered scholarships. The enrollment rates for the control group was around 44% for females and 57% for males. This experiment increased enrollment for females by 33% and enrollment for males by 36%. Proportionally, more people dropped out in the control group than in the treatment group, presumably because the treatment group's tuition was covered for the duration of their time there. People in the control group also started later and so stayed later (since they needed to gather the money to enroll).
+
+So there are two stages to our assessment here. The first stage is the effect of our random assignment on school enrollment. Our expected treatment effect in this stage can be expressed as $E[S_i | Z_i = 1] - E[S_i | Z_i = 0]$, where $S_i$ is school enrollment and $Z_i$ is a dummy variable denoting whether a group was treated or not-treated.
+
+The second stage is the treatment effect on cognitive scores. If scores are $Y_i$, then $E[Y_i | Z_i = 1] - E[Y_i | Z_i = 0]$.
+
+
+We can express the regression for the effect on the treated as
+
+$(1)\space E[Y_i | Z_i = 1] = \alpha + \beta E[S_i | Z_i = 1] + E[\epsilon_i | Z_i = 1]$
+
+and the effect on the control as
+
+$(2) \space E[Y_i | Z_i = 0] = \alpha + \beta E[S_i | Z_i = 0] + E[\epsilon_i | Z_i = 0]$
+
+Ideally, our $\epsilon$ terms are equal to each other, i.e. the underlying characteristics of our sample are identical. A well-designed randomized control trial would ensure this. Given that, if we subtract equation $(2)$ from equation $(1)$, we get
+
+$E[Y_i | Z_i = 1] - E[Y_i | Z_i = 0] = \beta(E[A_i | Z_i = 1] - E[A_i | Z_i = 0])$
+
+Isolating $\beta$, we get
+
+$\beta = \frac{E[Y_i | Z_i = 1] - E[Y_i | Z_i = 0]}{E[A_i | Z_i = 1] - E[A_i | Z_i = 0]}$
+
+This is our [instrumental variables estimate](../../iv), or Wald estimate. It's the ratio between the effect on our final outcome of interest over the effect of our instrument. We assume the scholarship has little to no *direct* effect on cognitive test scores. There may be some gray area here.
+
+We compute this estimate as $\frac{impact\space on\space cognitive\space scores}{impact\space on\space school\space enrollment}$. Earlier we noted that male enrollment increased by 36%. There was a .13 SD difference in cognitive scores. So $\frac{.13}{(36/100)} = ~.36 \space standard \space deviations$. As we can see here, if the scholarship happened to directly affect cognitive scores, we'd be multiplying by an even larger number and blowing the effect out of proportion. This is why it's critical to ensure our IV's first stage affects *only* the intermediary step (in this case, school enrollment) and not the outcome of interest (test scores).
+
+The scholarship instrument improved students' test scores.
+
+##How do parents' perceptions factor into this?##
+
+Say a parent's utility function for their child could be expressed as $U(y,S) = m * \ln({y}) - h(S)$, where $y$ is earnings, $S$ is education, and $h(S)$ is the cost of education. $m$ is some outside factor that influences the value of education, which we're representing as earnings.
+
+Let's also say that a kid's future earnings can be expressed as $\ln({y}) = a + b*S$, where $b$ is the percentage your earnings grow with each additional year of education.
+
+Taken together, we get $U(y,S) = m * (a + b * S) - h(S)$.
+
+So our equations above state that returns to years of education are log-linear. We get a consistent percentage increase, $b$, in income with every year of education. However, many parents don't subscribe to this belief. They may believe that it's worthless to send their kid to school unless they graduate high school. They may think the first few years of school are more worthwhile than the rest. They'd be off-base. The evidence suggests that the returns *are* at least somewhat linear, though the reasons are unclear. The percentage increase figure rests at around 7%. In developing countries, it could be that the quality of education in these schools is so poor that students learn at a slow pace and so hit learning milestones very gradually.
+
+Finally, we tackle the cost of education, or $h(S)$. It appears that secondary school teachers cost more than primary school teachers, and that the opportunity cost for attending school increases as children become more physically able. Therefore, the cost of education would be convex.
+
+Since we're interested in the marginal returns to education, we can model the derivative of $h(S)$ as $h^\prime(S) = r + \phi(S)$. A positive $\phi$ denotes a convex slope.
+
+Plugging that in, we get $U(y,S) = m * (a+b*S) - (r + \phi(S))$.
+
+We then want use the product rule to solve for $m * (a + b*S)$. The  derivative of $(a+b*S)$ wrt $S$ is $b$. $a$ is treated as a constant, and thus is $0$; the derivative of $S$ is $1$, so applying the product  rule, we get $(b * 1) + (0 * S) = b$. So w/ the product rule, we get $(m * b) + (0 * (a  + b*S)) = mb$.
+
+We already have the derivative of the cost of education, $r+ \phi(S)$.
+
+The maximization can thus be written as 
+
+$0 = mb - (r+\phi(S)$
+
+This can be rewritten as marginal cost equal to the marginal value of education:
+
+$r+\phi(S) = mb$.
+
+
+Isolating $S$, or optimal years of education:
+
+$0 = mb - r - \phi(S)$<br/>
+$\phi(S) = mb - r$<br/>
+$S^* = \frac{mb-r}{\phi}$<br/>
+
+$mb$ is the valuation of education times return to education, so gross value of education. $r$ is average cost of education per year. $\phi$ is the marginal cost.
+(source: david card)
+
+All of this makes sense w/o the math. Cost of education up, optimal schooling down. Value of education up, optimal schooling up.
+
+A *lot* of this ties into the labor market and how it rewards education.
+
+What if a parent's perception on income returns to education looked something like this?
+
+(a) $\ln(y) = a$ if $S < \underline S$
+
+(b) $\ln(y) = a + dS$ if $S > \underline S$, and $d > b$
+
+Then the maximization problem would give us simply $S^* = 0$ for (a) and $S^* = \frac{md-r}{\phi}$ for (b).
+
+Meaning that the returns would be 0 if you can't get a certain amount of education (up to and beyond $\underline S$). You can't get a certain amount of education if you can't afford $\underline S$. So no education for their kids in that caase.
+
+A poverty trap might be *generated* as a *result* of parents' beliefs.
+
+If parents can't afford to pay for enough education to be "worth" it, they may not send a kid to school at all. If they don't have enough to send *either* kid for that long, then neither goes. This then handicaps the kids, and unnecessarily so, since they could've been gaining some useful education. Similarly, if you have two kids but the parents only have enough for 1 kid to reach that "worth it" threshold, that's the kid who's going.
+
+In this last scenario, parents choose their "most promising" kid. How good are they at that?
+
+CCT's can be useful in dealing with people's misperceptions of returns to education.
+
+###Evidence###
+
+Tran Nguyen in Madagascar:
+
+Presented parents with the info on returns, and also introduced students to role models. Confirmed that there are misperceptions to returns. On average correct, but incorrect since overestimating secondary school returns and underestimating primary school returns. Presenting parents with accurate information had different effects depending on what the parents thought. If the people underestimated returns, when they got the info, they ended up increasing their effort and thus test scores. Overestimaters tuned it down.
+
+Rob Jensen in India:
+
+Now how would people's perceptions change if we didn't just inform people of returns, but directly changed returns? Rob Jensen expended recruitment radius around call centers. Girls' outcome improved, boys' stayed the same *on average*, but that average comprised people who did better and people who did worse. What happened to the latter group?
+
+Parents didn't like that their boy's opportunities went up so they stopped their education to prevent them from moving away and not being able to tend to the farms. They'd allocate the money saved there to other kids.
+
+[side fact]
+Women drop out to work at maquiladoras had forgone better opportunities as a result [look this paper up].

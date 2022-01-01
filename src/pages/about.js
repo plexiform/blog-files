@@ -4,10 +4,45 @@ import { graphql } from "gatsby"
 
 export default ({ data }) => (
   <Layout>
-    <h1>About M̶e̶ Us</h1>
-    <h2>For years I ran. Now I chase resistance, embrace failure.</h2>
-    <h3>You can attain greatness</h3>
     <p>
+      “I hear artificial light confuses a moth's sense of direction.”
+      <br />
+      <br />
+      “Surely not.”
+      <br /><br />
+      “Look! Do you see those many suns, suspended in a line?”
+      <br /><br />
+      “Surely they'll take us home.”
+      <br /><br />
+      <hr />
+
+      Our screens sleep in our pockets. <i>Click</i>— we unlock the curtains, our faces cast in the same frantic wavelengths that color our sky. Flashing signals splash the synapses; our prefrontal cortices set like plaster of paris.
+
+      <br /><br />
+      Are we changing? If so, is that change meaningful? Are we pulled to truth or to spectacle? Alan Jacobs borrows terms from Thomas Pynchon's “Gravity's Rainbow,” urging us to build our <i>personal density</i> by expanding our <i>temporal bandwidth</i>.
+      <br /><br />
+
+
+      <br /><br />
+      But it seems to me that most of the developed world is caught in its homespun web. Are we just countless moths, making small talk?
+      <br /><br />
+      <hr />
+    </p>
+    <p>
+      “Given that most platforms are developed in high- or middle-income countries, developing nations could potentially face the risk of becoming increasingly subject to the market power of foreign companies.”
+      https://blogs.worldbank.org/jobs/can-technology-reshape-world-work-developing-countries
+
+      https://www.un.org/fr/desa/data-economy-path-prosperity-or-dystopian-future
+
+      https://courses.cs.washington.edu/courses/cse490z/11au/project.html
+    </p>
+    <p>grain that i move with: programming, writing, drawing (on screen and off), modeling, understanding (people and culture), creating nets, how we go from being of the earth to seeing it</p>
+    <p>
+      network assimilation (how do cultures travel and assimilate - roads in china, radio propagation)
+      ; power systems (grid, wind turbines etc.)</p>
+
+
+    {/*
     <ul>
       <li>to be emotionally vulnerable</li>
       <li> in awe, bringing primal humanity and beauty back to technology</li>
@@ -21,7 +56,7 @@ export default ({ data }) => (
       <li>developing and tracking habits that are in accordance to my values</li>
       <li>to provide real hope, by proving we can shape our lives. that it isn't too late.</li>
      </ul>
-    </p>
+     */}
   </Layout>
 )
 

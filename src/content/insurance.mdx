@@ -1,0 +1,222 @@
+---
+title: "Insurance"
+date:
+tags: ["development_policy"]
+published: true
+---
+
+import MyPop    from '../components/popover.js'
+
+The nature of risk in the developing world:
+
+<MyPop notes="source this; in particular, the 2% figure" edits="Letting the subject and verb lead; emphatic words for the beginning and end of both sentences and paragraph. Perhaps tie their 'walking' with barefoot hedge managers">The Asian Contagion of ’97 decimated the thai baht, ensnared progress in the Philippines, and torpedoed banks to bailouts. Yet the same financial crisis explained just 2% of the the poor's variation in household income. Indonesian rice farmers – and peddlers of traded goods in general – ended up <i>richer</i>. When the global economy tumbles, the penniless trudge on.</MyPop>
+
+<br/><br/>
+
+In the Indonesian economic crisis of 1998, similar to the Thai crisis, the rupiah devalue; however, people in traded goods, such as rice farmers, were better off. Contrast this with people with fixed incomes, such as government employees. They were *worst* off, as indicated by their increased attendance of Quranic reading classes. They resorted to faith whereas rice farmers hadn't (these were *less* likely to attend such classes). This is similar to the poorest in West Bengal, who, when lacking resources to get expensive medical care, attend their *bhopas* instead of qualified doctors.
+
+The economies in question tend to be less urbanized and more traditional, poverty-stricken modes. That is, high rates of self-employment and farming. People in more urbanized areas are more likely to be affected by circumstances like a banking crisis.
+
+Self-employed farmers are constantly subjected to risk. Bad harvests, plagues, etc. can screw them badly. On top of this, casually employed people, who may or may not get a job any given day, are subject to extremely volatile wages. Wage volatility goes down significantly per log increase in GDP. This wage volatility stems in part from food volatility. If you spend a lot of your money on food and then food prices go up, you're losing income.
+
+Due to the green revolution (ended 1960's), food prices fell during 1970-2005. Prices then jumped in 2007.
+
+Experiments such as in Kenya with microcredit or Princeton with mild stressors show that stress reduces decision-making skills. The same applies to the bamboo harvest studies (people stressed even at harvest? idr; it might've been because of market uncertainty) and being reminded of debt in New Jersey (read: Scarcity).
+
+How do people deal with risk?
+
+###Borrow###
+
+
+###Save###
+Optimal savings/decision rule: save above some threshold; spend all below that threshold. Still no guarantee here. Assets accrue with income. A couple shocks stab into those assets. Consumption relatively flat up until those negative shocks.
+
+###Insure###
+
+Karian-Udry, Ghana:
+Similar to insecticide-sprayed bednets, demand is there at cost zero, but plummets at higher costs, with no demand at actuarially fair prices. Even actuarially fair prices are low or a bargain for risk averse people, or should be.
+
+Spending on chemical fertilizer goes up goes up a bit when you're offered insurance subsidies. Spending on that fertilizer goes up much (50%) more when you're offered both insurance and credit. After all, you want to protect your investment/what you're using your credit on.
+
+When someone is offered both credit and insurance subsidies, their family halves (or goes down ~43%) their missed meals that year.
+
+https://www.povertyactionlab.org/policy-insight/protecting-farmers-weather-based-risk
+
+Yet, as mentioned at the beginning of this section, people don't want it. People don't know whether or not to trust market insurance, as they lack the information or skillset to ascertain things like rainfall indices. Attempts at providing "microinsurance" fell flat due to high attrition rates when these programs were being forced upon people (so the insurance organizations avoided adverse selection). And to what extent would these people understand things like moral hazard and and incentives designed around it? In certain parts of the world, insurance companies only insure certain conditions that can't be manipulated for moral hazard, like cancer.
+
+---
+
+People might work more to mitigate risk. However, if they're working more due to a storm or drought, chancces are their neighbors are too. This lowers their wages and thus fucks them further. Seema Jayachandran examines this hypothesis.  SShe looks at wages in drought years versus non-drought years; in addition, she examines to what extent banking services attenuate the effects of drought on wages.
+
+Her results show first that, as we'd expect, your agricultural yield is good for your agricultural wage. She then goes to show that by any measure of banking (number of deposits, bank credits owed, or amount of branches in the area), wage is *less* affected by yield when we have banking. But if we're in a place with fewer banks, we'll more likely to sell our labor for cheap.
+
+Yet another strategy is to avoid risk, e.g. through diversification. A common example is plots held far apart from each other (not adjacent), or a family holding upwards of 20 jobs. This, tautologically stated, leads to lack of specialization. If you don't mix your crops, without weather risks, you'll make 30% more money.
+
+Pull pages from small green notebook and Insurance slides 1 and 2.
+
+We know today's income and are uncertain about tomorrow's income. Because we don't know tomorrow's income, we might save for tomorrow, which gains interest. However, we discount tomorrow's value as it's worth less than today.
+
+Today, we make $y_1$, save $S$, and consume $c_1$:
+
+$c_1 = y_1 - S$
+
+Tomorrow, we make $y_2$, consume $c_2$ and gain interest on $S$, which turns into $RS$.
+
+$c_2 = y_2 + RS$
+
+We know $c_1$.
+
+$\max u(c_1) + \beta E[u(c_2)]$
+
+The difficulty is that we don't know $c_2$ so only have an expected utility. Therefore our expectations are probabilistic.
+
+$\max u(c_1) + \beta[pu(y_H+RS) + (1-p)u(y_L+RS)]$
+
+We're maximizing our utilities.
+
+$\beta R = \frac{u^\prime(c_1)}{pu^\prime(y_H+RS)+(1-p)u^\prime(y_L+RS)}$
+
+This is equivalent to
+
+$\beta R = \frac{u^\prime(c_1)}{E[u^\prime(c_2)]}$
+
+$\beta R$ is just the returns we get discounted by how far in the future those returns are.
+
+In order to reason about the above intuitively, imagine $\beta R$ is $1$. We can then multiply and set $u^\prime(c_1) = E[u^\prime(c_2)]$. We want our utility today to equal our expected utility tomorrow. This can change depending on varying levels of $R$.
+
+
+###Concrete example given###
+
+$u(c) = ac + 0.5bc^2$
+
+$u^\prime(c) = a - bc$
+
+$\beta R = \frac{a-bc_1}{E[a-bc_2]}$
+
+if $\beta R = 1$
+
+$E[a-bc_2] = a-bc_1$
+
+$E[c_2] = c_1$
+
+Martingale: mean tomorrow is equal to value today, e.g. the case above where $\beta R = 1$ and utility is quadratic. If $\beta R > 1$, then people will save.
+
+The most that we can consume between two periods is
+
+$c_2 + Rc_1 = y_2 + Ry_1$
+
+Recall that $R = 1 + r$ (just a simplified notation). The equation below is equivalent to the equation above:
+
+$\frac{c_2}{1+r} + c_1 = \frac{y_2}{1+r} + y_1$
+
+But we don't know our incomes for today nor tomorrow, only our expectation of them:
+
+$\frac{E[c_2]}{1+r} + c_1 = \frac{E[y_2]}{1+r} + y_1$
+
+Under the model above, where $\beta R = 1$ and we're seeking to smooth consumption, $E[c_2] = c_1$:
+
+$\frac{c_1}{1+r} + c_1 = \frac{E[y_2]}{1+r} + y_1$
+
+$\frac{c_1}{1+r} + \frac{(1+r)c_1}{(1+r)} = \frac{E[y_2]}{1+r} + y_1$
+
+$c_1\frac{1+1+r}{1+r} = \frac{E[y_2]}{1+r} + y_1$
+
+$c_1\frac{2+r}{1+r} = \frac{E[y_2]}{1+r} + y_1$
+
+$c_1 = \frac{E[y_2]}{1+r}*(\frac{1+r}{2+r}) + y_1 * (\frac{1+r}{2+r})$
+
+$c_1 = \frac{E[y_2]}{2+r} + y_1\frac{1+r}{2+r}$
+
+($E[y_2]$ can be expressed as $p(y_H) + (1-p)(y_L)$)
+
+If $y_1$ and $E[y_2]$ goes up by $1$, $c_1$ goes up by one. That is, if *permanent* income goes up by $1$, consumption goes up by $1$. However, if we only get a temporary boost in income, so just some financial windfall, our marginal consumption will be less than with permanent income. In the model, this is represented as just $y_1$ increasing.
+
+The above equation concerns itself with 2 periods of time. Eyeballing it gives the impression that if $y_1$ were to go up by some amount, with a small $r$, we'd consume half and save half of that income. If we extend the time horizon over many periods, it appears that we'd divide our savings by as many periods, and those savings would thus be tiny. This is a knock against temporary windfalls and tax breaks.
+
+In the simple model presented above, if $\beta R > 1$, we save (tomorrow is more valuable, so we move money into the future), otherwise ($\beta R \leq 1$) we borrow. The difficulty is that borrowing is often infeasible for the world's poorest (see [credit](/credit), specifically monitoring costs). So if people anticipate that they'll be borrowing constrained, and anticipate shocks, they'll save now in order to mitigate shocks in the future.
+
+Deaton finds that if people save 70% or 80% over some threshold 100, it still does nothing in the face of consecutive income shocks (imagine a couple of monsoons).  Savings is infeasible, and a better alternative is insurance.
+
+## Paxson ##
+
+Paxson wanted to find out how much people saved out of transitory income. This can be confounding given how datasets are usually presented, with only savings and income and no other labeled variables. Income and savings by themselves don't tell us how much of the savings are coming out of permanent income versus temporary income.
+
+We can't just look at how much people make and say, “They save *this much more* when they make $1 more.” There might be some third variable that's affecting both how much people save and make. For example, perhaps you're just a more industrious individual. There might also be some effect of savings on income, i.e. the correlation goes both ways. Sure, if you make more, you might save more; but you also might choose to save less, or if you save more, you might choose not to maake more.
+
+In order to negotiate these issues, Paxson observes deviations from average rainfall as a proxy for transitory income. Because of the problems mentioned above re: regressing savings on total income, she needed to decompose total income into its aggregate parts. She does the same with permanent income — that is, account for traits such as age and land owned that are likely indicators of permanent income. After regressing income on transitory and permanent indicators, she takes their $\beta$'s. She regresses savings on them, along with a residual term for unexplained sources of income and how they feed into savings, and predicts if the coefficient for temporary income on savings is larger than the coefficient for permanent income on savings.
+
+She finds that indeed, people save much more out of their temporary incomes than their permanent incomes.
+
+--
+
+##Mutual insurance##
+
+Risk aversion is concave, e.g. guaranteed \$1000 has greater utility than $0.5(1500) + 0.5(500)$. Concavity means we're getting diminishing marginal utility with income. Put another way, the expected value is worth more than the gamble itself. Risk-*loving*, on the other hand, means the expected value is worth *less* than the gamble, i.e. $E[U(gamble)] > U(EV)$, e.g. $(0.5*u(1500) + 0.5*u(500)) > U(1000)$.
+
+
+Now in the scenario of people pooling their incomes, our calculus changes.
+
+Instead of the "gamble" looking like $0.5(u)x + 0.5(u)y$, it'd look like $0.25u(x) + 0.25u(y) + 0.5u(\frac{x+y}{2})$.
+
+If we take the difference between the shared gamble and the solo gamble, e.g.
+
+$(0.25u(1000)+0.25u(2000)+0.5u(1500)) - (0.5u(1000)+0.5u(2000))$
+
+we get
+
+$0.5u(1500)-0.25u(1000)-0.25u(2000)$
+
+Since we're interested in establishing whether or not this is concave (i.e. risk averse) we can multiply the above by $2$ for ease of reading, since we're interested in whether or not the difference above is greater than $0$
+
+Multiplied by 2, and rewritten for ease:
+
+$u(1500) - (0.5u(1000) + 0.5u(2000)) \geq 0$
+
+The utility of the mean is greater than the mean of the utilities. This relationship, which describes concavity, is called "Jensen's inequality."
+
+In the real world, this means risk averse people will prefer to pool their incomes.
+
+https://edxuploads.s3.amazonaws.com/1615467470582875201106.png
+
+[paper notes on Indian villages (shirapur and kanzarn) and cote d'ivoire]
+
+^ where we observe how changes in consumption relate to average village income and individual income ^
+
+Udry, in Nigeria:
+
+The way loans work in Nigeria is, borrowers pay less if they take a hit ("adverse shock"). If the lender takes a hit, the borrower pays back more. Restated, you're going through a hard time, even though I owe you, I've gotchu. If you're doing well, take it easy on me man, I'll give you just a bit. Or, "I'm not doing so great, so I'll give you just a bit!" Over time, the amount someone is owed or owes someone else reflects their ongoing relationships. If you've consistently got my back, I won't owe you so much, so you and I are on good terms. Knowing on net how much someone owes you can also inform decisions such as whether or not to give someone more money.
+
+More broadly speaking, this system provides a mean to continuously monitor strengths ofrelationships across the village and, extending this, people's status.
+
+We see that in Nigeria, with this system in place, if a borrow receives a shock, they pay 4% less. If a lender doesn't receive a shock, they charge 10% less (conversely, they receive a shock and charge 10% more, relatively speaking). That's quite a bit off of what is owed. However, the people are very poor, so while the percentages are high, the amount you're actually saving isn't much. Another downside, which was implied earlier, is that if you *don't* have an ongoing relataionship with someone, this form of insurance-by-lending is very limited in scope.
+
+Townsend, in Yang Pien, Thailand:
+
+Observing farmers' best and worst years, we see there's overlap between some's worst and some's best. This means many the harvests' successes are independent, so there's room for insurance, since these changes are coming from idiosyncratic shocks as opposed to events that affect the village as a whole (which would make insurance untenable/ineffective).
+
+Fluctuations were large irrespective of how much money you have. People were equally exposed to risk. The *reasons* for that risk varied. Some people reported too much water, others too little; this can depend on what crops you grow. Rice <3 water; cotton and chili </3 water. But even if two people grow the same crops, they might run into different weather conditions b/c of different microclimates. Timing [of rain, for example] matters as well.
+
+In Mae Wak, there are multiple funds. One is a village savings fund that operates on equity. What you get back in interest corresponds to the village's demand level. This can be good if productivity is so high that people borrow more so they can produce more; it can be bad if people are borrowing because they're desperate. Another fund is for buying pigs, with rollover so you can pay back later. The same goes for their fertilizer fund. The rice fund is direct deposits and withdrawals of rice, and the healthcare fund is for specific treatments.
+
+In Sop Wak, there exists an identical system, except that people have mostly defaulted. Putting money in is risky, since you may not get it back.
+
+*“Prof. Banerjee explains that default is in a sense a form of insurance, as it provides the option to not pay when you cannot afford to. Prof. Banerjee describes that you could pay people in the form of default, however, whether or not this would be bad for the overall insurance system would depend on the level of default. If there was too much defaulting, then the system would not work.”*
+
+In Maanajohn, there exists one fund. The system is similar to that in Nigeria. Remember, these three villages are identical to each other. Why are they so different from each other? Consider Sop Wak. If we think that everyone else is going to default, the fund won't have money in the future, so I should default as well. Moral hazard is at play. These institutions owe their continued existence to trust that reaches into the future.
+
+Think about the nature of an insurance fund. We know that it'll pay back less than a market fund — otherwise people will just borrow directly from the market. Similarly, if we save our money in a formal institution like a bank, we can make more money than putting it in an insurance fund.
+
+We might contribute to the fund because we'll need it just as everyone else in the village might need it; however, if we're rich, we can take our money elsewhere, because we don't need it, and as an investment, it's a loss.
+
+other difficulties with informal markets: cows and diamonds in Botswana; mistrust; moral hazard, etc.
+
+
+
+The nature of insurance:
+
+How do we differentiate between insurance and credit? When we take out a loan, we pay back, often with interest. When we insure each other, we don't remember what happened in the past. We just adjust our cuts according to our likelihoods of taking some hits (and our history is bygones).
+
+Because insurance is history-forgetting, it can be fertile ground for someone taking advantage of the contract, perhaps milking it or engaging in riskier behaviors. They're morally hazardous. So an insurance contract's gotta ramp up the incentives and penalties in case of bullshit being afoot. Similarly, if riskier candidates are more likely to sign up for insurance, this is known as adverse selection and must be similarly accounted for.
+
+In the case where things are independently distributed and drawing from the same distribution, the above equations might apply. The Law of Large Numbers says that the more people there are in this pool, the lower our risk, since it grows closer to the expected value (square root of the n in group). So insurance is well-suited to the independently distributed case. Unfortunately, if we're talking about some small village, what are the odds of that? If someone is subjected to some shit disease that plagues their crop, or a flood, chances are risks aren't so independent after all.
+

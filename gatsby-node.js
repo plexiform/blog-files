@@ -2,9 +2,28 @@ const path = require (`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const _ = require("lodash")
 
+// uncommenting this will render all but blog/tags (createPages pages)!!!
+/*
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+      tags: [String!]!
+      date: Date!
+      published:Boolean!
+    }
+  `
+  createTypes(typeDefs)
+}
+*/
+
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
       node,
@@ -50,12 +69,12 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
-  const blogPostTemplate = path.resolve("src/templates/blog-post.js")
-  const tagTemplate = path.resolve("src/templates/tags.js")
+  const blogPostTemplate = path.resolve("./src/templates/blog-post.js")
+  const tagTemplate = path.resolve("./src/templates/tags.js")
 
   const result = await graphql(`
     {
-      postsRemark: allMarkdownRemark(
+      postsRemark: allMdx(
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 2000
       ) {
@@ -70,7 +89,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
-      tagsGroup: allMarkdownRemark(limit: 2000) {
+      tagsGroup: allMdx(limit: 2000) {
         group(field: frontmatter___tags) {
           fieldValue
         }

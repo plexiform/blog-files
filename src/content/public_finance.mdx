@@ -1,0 +1,205 @@
+---
+title: "Public Finance"
+date: 2021-04-07
+tags: ["development_policy"]
+published: true
+---
+
+What is the role of government? How does it interact with the private sector?
+
+
+Many economists think the government should only do things the private sector would fail at. Since the private sector is effective at matching supply and demand, it's efficient; however, being productively efficient doesn't mean everyone is taken care of or protected. Therefore the government regulates, redistributes, grants patents, builds roads, etc. Taxes pay for all of this. Taxes should be carefully considered since they carry logistical or distortionary costs. Stuff that can't be bought at the individual level or that others could piggyback off of tends to be the government's territory (e.g. military defense).
+
+What follows are four categories of what the government does:
+
+1) *Public Goods* are non-rival and non-excludable. Non-rival means you using something doesn't preclude someone else from using it since it's effectively non-depleting (are people's rights non-rival?). Examples of non-rival goods include clean air, clean water, and television. Non-excludable goods are public access. This means they're free to use for all. Examples include fireworks displays, military defense, and lighthouses.
+
+2) The government also *corrects externalities*. Externalities are unintended side-effects. Negative externalities include smoking, pollution, and drunk driving. Positive externalities include vaccinations, sewer systems, and urban bike-sharing programs.
+
+3) *Regulating the private sector* is sometimes necessary. Monopolies need regulation vis a vis antitrust actions. Companies poised to have too much power, in industries with a history of these things, such as in utilities, are a general example.
+
+4) The government can *redistribute* and create *social safety nets*. Redistribution is about adjusting the level along a scale of equality, whereas social safety nets protect people against shocks.
+
+Item no.4 poses unique challenge in developing countries, such as identifying who's poor enough to get help.
+
+Another challenge is *taxation*.
+
+*Taxation Challenges in Developing Countries:*
+
+In developed countries, you have multiple sources to corroborate your income. Double reporting builds redundancy and allows cross-validation of people's information. This is feasible in formal markets. The problem is less tractable in informal markets. Data is lacking. Without communication between departments, it's difficult to measure or levy taxation.
+
+Because of this, enforcement is necessary. This isn't an easy fix either, since enforcement is also susceptible to corruption. Tax collectors often have incentive to take bribes since those bribes are worth more than their incomes.
+
+One way to accommodate these issues is by taxing large corporations. Large corporations are easier to monitor due to their reliance on banks and other resources. There's also more incentive because of how much money is churning through these companies.
+
+Tariffs and border taxes are also easy to monitor.
+
+Another two ways to tackle the information problem are value-added taxes and incentivizing tax collectors.
+
+Value-added taxes (VAT) are a string of taxes along the supply chain, wherein your tax is specific to the value you add. If you added some value to a product, say \$50, whether by selling or manufacturing, that \$50 gets taxed. This is accomplished through credits discounting taxes from each node in the chain based off of what their predecessor/distributor paid.
+
+If you evade taxes by claiming you generated less value than you did, the people who come before and after you would have to pay higher taxes. This is the enforcement mechanism for VAT, or at least, it's the theory.
+
+To test this theory, Dina Pomeranz ran an experiment with the Chilean government. Her test presupposes a model with two possibilities. The first possibility is that firms evade VAT's through discrepancy. Discrepancy is simply what was described above -- specifically, people were either overstating their inputs or understating their sales. The second possibility is omission. This means firms omit the record of some product. Omission is only possible when all firms in the chain agree to omit.
+
+Pomeranz told half of the firms in a chain that they were going to be audited. She then observed the ripple effects upstream and downstream of firms along various levels of the chain. She was looking for two effects here. One is that, once some middle firm is told it's being audited, its up- and downstream firms will be more honest. She predicted that the upstream firms, aka the suppliers, would be more honest than the downstream firms, aka the retail stores. After all, the downstream stores can still lie without being corrected by their customers or government. The second thing she predicted was that people would all *shift* towards more honesty, and that stores would shift more towards honesty than the other firms, since stores are probably lying more.
+
+
+In regression ${Y_i}={\alpha}+{\beta TREAT_i}+{\gamma (TREAT_i * SUPPLIER_i)}+{\omega SUPPLIER_i}$. $TREAT_i$ and $SUPPLIER_i$ are simply dummy variables indicating whether or not the firm was treated (audited) or a supplier, respectively. The middle term is an *interaction* term. When you take the first derivative of this regression wrt $TREAT_i$, you get the effect of treatment on the outcome. When you take the derivative of *that* wrt $SUPPLIER_i$, you get ${\gamma}$, which is the difference in treatment between suppliers and non-suppliers.
+
+<i>"The total effect of treatment for suppliers is given by the treatment effect (β) plus the differential effect of treatment on suppliers (γ), or β + γ. The treatment effect for non-suppliers is given by β. To see this, take the first derivative of Y with respect to treatment. This becomes: 𝑌′𝑖=β+(γ×𝑆𝑈𝑃𝑃𝐿𝐼𝐸𝑅𝑖). When SUPPLIER=1, the first total effect of treatment is hence β + γ. When SUPPLIER=0, this becomes simply β."</i>
+
+**come back to this after reviewing power and variance**
+
+Pomeranz is interested in changes within firms because different firms will vary in how much they pay in taxes, so she wants to reduce unexplained variance from the effect of the intervention. She does this by including pre-intervention outcomes in her regression at baseline ($POST_t$) **update this to include the complete regression**
+
+She finds that ripples move upstream to have the suppliers pay much more in taxes. Evasion goes down for suppliers downstream **review**
+
+<h3>Pakistan Tax Evasion</h3>
+
+As I wrote before, the information problem causes many of the grievances in regards to tax evasion. Pomeranz's intervention and study is an example of how, where information is lacking, changing the tax system could help prevent tax evasion.
+
+Tax inspectors are intended to assuage the information problem, which would be fine, except for that they're human. Humans tend to laziness or whatever benefits them most. If tax inspection is hard work, inspectors might fabricate shit. If it's expensive work, inspectors might accept bribes. Besides that, everything is manually entered and paper-based.
+
+Khan, Olken, Khwa(?) et al examined the property tax department in Pakistan. Pakistan's challenge is interesting as only 9% of its GDP comes from its revenue. Contrast this with the >15-20% typical of developed countries, and <=15% in developing countries.
+
+The Pakistan tax department does its work by sending out tax inspectors. Olken's hypothesis was that these guys were under-reporting. The intervention they set forth was giving the inspectors a share of the taxes they collected (pay-for-performance).
+
+They randomly assigned some inspectors across 500 tax offices (1 per neighborhood) to get a percentage based on the inspectors' histories. They get a share of however much extra they collect relative to what they typically collect. A couple of risks to this approach include 1) tax inspectors overvaluing property because then they get to tax more and therefore get a higher share of that tax and 2) bribers offering larger bribes to counter the shared incentive.
+
+Tax and government revenue went up.
+
+To think about the incentives between tax collector and taxpayer, we can use Nash bargaining.
+
+Nash Bargaining describes a problem where two agents have to decide how they're going to split some money. If they don't come to an agreement, they both get squat. How they divvy it up is determined by some bargaining weight and the agents' outside options. That weight gets multiplied by the surplus (which accounts for both agents' outside options) plus the respective agent's outside option.  
+
+Written out, imagine two people, agent A and agent B, want to decide how to split \$1. Without any dealing, they'd be getting $a_0$ and $b_0$, respectively. Taken together, that's $a_0 + b_0$ total, with $a_0 + b_0 < 1$. Therefore if they take the bribe, they'd be gaining $1-a_0-b_0$ in surplus. When one agent's outside option goes up, e.g. $a_0$, then the surplus goes down (since they're sharing that $1-a_0-b_0$ surplus). Thus the other agent's payoff goes down.
+
+$\gamma(1-{a_0}-{b_0}) +a_0$ for agent A. $a_0$ and $b_0$ is what they'd earn without taking the deal (these are their combined outside options, after all). $\gamma$ is a share that helps determine bargaining weight. The outside option ($a_0$ in this case) gets tacked on because they'll be receiving it anyway.
+
+So if tax owed is ${\tau}^*$, and a tax collector agrees to collect ${\tau}$ in exchange for a bribe, then ${\tau}^*-{\tau}$ is the surplus. The bargaining space for a bribe occurs in this surplus. The outside option for the taxpayer is $-\tau^*$. The outside option of the tax collector is $0$. If the taxpayer's bargaining weight is $\gamma$, the tax collector gets $1-\gamma$, and the bribe is $(1-{\gamma})({\tau^*}-{\tau} - 0)$.
+
+Let's say now that the tax collector is incentivized by getting to keep some $r$ of taxes collected. They'll also be getting penalized $\beta$ if caught. There's a non-zero chance they get caught. The penalty can then be represented as ${\beta}({\tau^*}-{\tau})$ (scales with amount of corruption/undertaxing). Bribe is $b$.
+
+Now we can write the joint surplus for both parties. The follows is similar in principle to the example above, but with the additional variables mentioned in the previous paragraph.
+
+The taxpayer's surplus can be written as $[{\tau^*}-{\tau}-b]$, or the total amount of possible surplus minus the bribe they pay.
+
+The tax collector's surplus can be written as $[r{\tau}-{\beta ({\tau^*}-{\tau)}}-r{\tau^*}+b]$. This is read as what they get from the bribe, minus the cost of the penalty and what they'd normally get paid, plus the bribe itself.
+
+Add the two agents' surpluses together:
+
+$[{\tau^*}-{\tau}-b]+[r{\tau}-{\beta ({\tau^*}-{\tau)}}-r{\tau^*}+b]$
+
+$= \tau^* - \tau - b + r{\tau}-{\beta({\tau^*}-{\tau})}-r{\tau^*}+b$
+
+$= \tau^* - \tau + r{\tau}-r{\tau^*}-{\beta({\tau^*}-{\tau})}$
+
+$= (1-r)({\tau^*}-{\tau})-{\beta}({\tau^*}-{\tau})$
+
+In a world where the taxpayer doesn't pay any taxes ($\tau = 0$), we get a joint surplus of $(1-r){\tau^*}-{\beta}{\tau^*}$. When the incentive rate $r$ goes up, the surplus (or bribe space), goes down.
+
+The bribe the tax collector collects is then their outside option plus their share of the joint surplus.
+
+$r{\tau^*}+(1-{\gamma})[(1-r){\tau^*}-{\beta}{\tau^*}]$
+
+^ collector\_incentive + (collector\_bargaining\_weight * joint\_surplus) ^
+
+If $r$ goes up, the collector's gets more of what they collect AND more of a penalty $(1-r)\tau^*$ because of the opportunity cost — as $r$ goes up, our total surplus goes down. The same goes for the penalty, $\beta$. If $\beta$ goes up, they get even less because of the penalty.
+
+higher r, high beta = higher revenue, fewer bribes; higher r, low beta = higher revenue, many bribes
+
+The joint surplus needs to be greater than $0$ to be worth it: $(1-r)\tau^* - \beta \tau^* > 0$. We can rewrite this as $(1-\beta-r)\tau^* > 0$. If $(\beta+r) > 1$, we get $(1-(\beta+r)) \implies 1-\beta-r < 0$, it isn't worth it. Therefore $\beta+r < 1$ for the tax collector to stay involved.
+
+Because raising $r$ increases our outside option and decreases the joint surplus, if $r$ puts $r + \beta > 1$, no more collusion.
+
+If there's collusion and $r$ goes up, our outside option in
+
+$r{\tau^*}+(1-{\gamma})[(1-r){\tau^*}-{\beta}{\tau^*}]$
+
+has gone up. So we're collecting a larger bribe.
+
+So two main effects come from this: either we collude less, or bribes are more expensive.
+
+
+**Outcomes**
+
+Increase in government revenue >9%.
+
+Decreasing revenue incentive decreases revenue altogether (concern was that tax collector would inflate their "sales" to get more of a share).
+
+Pays for itself (cost $r$ is less than the revenue generated) (didn't check this, but that's what he seems to be saying)
+
+In the general populace, bribe amount and frequency went *up*. Yet we know we generated an additional 9% government revenue. Why is that?
+
+We see that, in treatment, places whose properties were reassessed (meaning either property tax changed or the tax collector changed their mind) and thus paid higher taxes had *lower* bribe amounts and frequency. This means they paid their [now significantly more hefty] taxes more often. This is equivalent to raising $r$ such that $r+\beta > 1$, since tax collectors are incentivized to milk these reassessed properties. How much did they milk them though? Did they perhaps *over*tax? Nope. Based on ~14,000 independent assessments of what people *should* be taxed (based on land size, house size, etc.), we see that reassessed people were being undertaxed before, and moved towards accurate tax levels after being treated.
+
+##Targeting##
+
+Targeting is figuring out who gets the benefits of some program or policy. This is more difficult to do in developing countries than in wealthy countries, because poorer countries have fewer methods to confirm things like income. People's behavior varies depending on social norms and stigmas, being ostracized or audited, double-reporting or lack of it, etc.
+
+A few methods to clarify people's income brackets include putting them to unpleasant tasks for money and seeing who sticks, going to people's places to gauge where they're at financially, etc. However, these methods have their drawbacks. Just as people can like about consumption, they can hide their possessions. We can somewhat get around this by assessing permanent durables/assets such as land or vehicles. Assets probably don't also tell the whole story. In the US, even income is seen as imperfect because it doesn't say much about earning potential. Similar logic can be applied to proxy-means tests. Surveyors might also be bribed.
+
+When PMT was run in Columbia, people began to adjust such that they'd fall beneath the threshold to be eligible for benefits. This is similar to how factories adjusted to being audited in...China? India? idr.
+
+Then there's community-based targeting, wherein people in a community convene and decide who gets the money. Norms and stigmas may play a role here, but then so does more enforcement and less lying. A community might lie as a group, however. Social dominance might sway the direction the money goes and result in "elites capturing" it. Therefore there's a tradeoff between telling the locals what you're up to and getting better information, and elite capture.
+
+###Survey in Indonesia###
+
+Comparing PMT and Community Approaches (Alatas, Banerjee, Hanna, Olken, Tobias) (refer to slide for model) - proxy vs community targeting etc, teasing out elite capture vs preferences etc
+
+600 randomly chossen villages, $3 transfers. Testing 3 targeting methods: Community rankings, meaning community deliberates as to who's poorest; proxy-means tests; hybrid testing means community ranking, then measure bottom 50% with proxy-means tests.
+
+Consumption is hard to gauge, so using that as a metric can be finnicky. It has more predictive power for the poorest than for the richest, however (they'd have a hard time eating their huge amount of money).
+
+Community targeting effective.
+[review this/read papers]
+
+One way to implement self-targeting is through programs that have an unpleasantness or high cost to entering them. This is a fine balancing act though since it can backfire; for example, if you want people to self-select themselves by working through grueling documentation, that's all well and good, but if the people you're seeking to target have poor documentation to begin with, we're screening in the opposite direction. Screening and applications processes may be a hassle, food stamps might restrict choices, or going into low-income housing. NREGA in India guaranteed people 100 days of manual labor at minimum wage.
+
+If we're trying to determine the chances of passing a proxy means test (PMT), we can use a couple of variables. One variable would be observable income like permanent assets, roofing, tiles, etc. The other would be unobservable income, where people might keep things hidden. We may also get indicators of this by asking innocent questions on consumption, where the surveyed have no incentive to lie.  With this latter variable, our probability of passing the PMT won't go down as steeply as with observed income. This is because people can hide or lie about things more easily. Someone might have high consumption but because their assets are hidden, low PMT. This is why we want to screen people out.
+
+[just generally refer to slides here; public finance]
+
+$-c + \lambda(y)+b$
+
+$=-yt + \lambda(y)=b$
+
+$c$ is opportunity cost; $y$ is per unit cost; $b$ is benefit
+
+Varying time costs increases price or ordeal and thus screens people more effectively
+
+What are the flaws with this approach?
+
+Rich people have a high opportunity cost so it screens them, but also really poor people may have concave utility functions that make the opportunity cost high for them as well. They may not necessarily be doing nothing, and might instead be giving up a full day's worth of eating.
+
+Another threat is similar to the documentation one, which is that rich people may have an easier time undergoing the screening process (access to computers, internet, etc.)
+
+###Indonesia CCT experiment to ascertain the above questions###
+
+400 Villages in Indonesia. Randomization: either automatic PMT (more convenient) or come and apply first (less convenient). High pay, inform people somewhat on who's eligible and who's not.
+
+About 60% of the poor applied, and much less of the rich.
+
+How do we address people selecting themselves in or out? If people don't know how we select for $y_o$ and $y_u$, the confusion can work to our advantage.
+
+People with lower $y_o$ and $y_u$ showed up more. A greater percentage of the self-targeting group was poor than the self-targeting group than the automatic group. This provides some evidence towards the benefits of screening.
+
+my attention suuuucked here
+
+###Transparency###
+
+The Raskin Program
+
+Poorest 30% get 15kg rice/mo subsidy (about 80%). This program by itself may cause corruption or power imbalances. Officials might sell at the side, fail to tell people things. People getting overcharged and underserved rice. Getting about a third of total amount promised (15 * market\_price - subsidized\_price). It could be corruption, or logistical issues. Perhaps people are redistributing it to the "right" people because they know better than the government.
+
+
+There's initially a power imbalance between distributors and beneficiaries. In Indonesia, tell people their rights. See how that changes things.
+
+Informing people might carry some risks. One risk is redundancy: people already know, and now we're wasting money giving away ID's with people's rights written on them. Another is that if people are "correctly" redistributing things, the rights cards might screw over those who need the redistribution most. This might even cause protests.
+...slides for reminders
+(4 varied treatments, public, copay price, coupon accountability, some people get cards)
+
+16 cells in a matrix, complete w/ interaction terms switched on and off; reduced forms but no Wald estimates b/c we can't be sure the exclusion restriction wasn't violated, e.g. people receiving cards -> more aware of status (IV estimate = Reduced Form/First stage = .09[more knew about status]/0.28[received card]) -- in this case, perhaps people knew more about status due to spillover effects, for example.
+
+Card treatment villages got 7k more rupiah or around 25% more rice/mo. Eligible people got more, but ineligible didn't get less. So we don't see evidence of redistribution. Seems like either logistical issues or corruption were responsible.

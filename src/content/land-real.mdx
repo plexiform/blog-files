@@ -1,0 +1,138 @@
+---
+title: "Land"
+date: 2020-10-18
+tags: ["development_policy", "incomplete"]
+published: true
+---
+
+Researchers tracked farm output in Northeast Brazil; Punjab, Pakistan; and Muda, Malaysia. They observed that large farms yielded less output per hectare than small farms. While there may be myriad reasons for this, conjecture for a moment that a farm's size in and of itself causes a farm's output. This would be fantastic. After all, the government could redistribute larger farms' lands and increase both efficiency and equity. Problem solved. Alas, it was shown that the profit-wealth ratio was greater for small farmers than for large farmers. They're doing something differently.
+
+Why is that? What is that? Is it that small land is more easily managed? If that's the case, don't large farms have more room for better equipment? Perhaps the large farms are so large because they have more productive farmers that generate more profit; maybe they have more capital (they do). Given these advantages, it doesn't *have* to be the case that smaller farms are more productive.
+
+A little foggy, then, why it *is* the case. The fog begins to thin when we observe that large farms are that much more likely to rent land, whereas small farms are more likely to be cultivated by their owners. The smaller farmers have less to lose on someone else's land, and more to lose on their own. Does this mean they don't try as hard when renting land?
+
+Biswanger and Rosenzweig are on the case. Using data collected by the International Crops Research Institute for the Semi-Arid Tropics (ICRISAT), which recorded detailed data for so many households, B&R formulate this regression:
+$\Pi{_i}{_j} = \alpha + {\beta}R_j+ {\eta}_i+v_j$.
+
+$\Pi$ is profits of individual $i$ on plot $j$. $R$ is a dummy variable representing whether or not the farm is rented; $\eta$ accounts for the farmer's characteristics, whether they be tenacity or what have you; $v$ is a residual term for undetermined variance or influence on the results.
+
+The regression asks, "To what extent are profits determined by rent-status and by the farmer's characteristics?" Unfortunately, it's possible to conflate the two characteristics in the regression above. A farmer might be hardworking. Or they might be trying harder for their plot. Or both. We wouldn't know which of these factors lead to their profits. We need to compare one farmer's output on their own land with their output on someone else's.
+
+So sprouts this regression: ${\Pi{_i}{_2}}-{\Pi{_i}{_1}}=\beta(R{_i}{_2}-R{_i}{_1})+vi_2-vi_1$. Same farmer, different plots. Farmers work harder on their own plots than rented plots. Additional work using this data also controls for additional factors, such as plot quality and inputs to the land. Our conclusion stands.
+
+Imagine then that you're the owner of a large farm. You enjoy excess, languishing land, and decide to put it to use. While renting your land out seems promising, you suspect, as is proven above, that you won't get good labor for nothing. You can't observe the effort of your tenants - that would be time consuming, costly, and altogether redundant. Incentives are necessary.
+
+In the models I'll be explicating below, the variables are as follows:
+
+* $c$ - cost of effort
+* $e$ - effort itself
+* $H$ - high (non-zero) output
+* $e*H$ - probability of high output
+* $(1-e)*0$ - probability of low (zero) output
+* $R$ - cost of rent
+* $h$ - pay for high output
+* $l$ - pay for low output
+
+A tenant's effort is modeled as $\frac{1}{2}c*e^2$. This means their marginal cost of effort is $ce$, and that additional effort is costly.
+
+Various contracts can be implemented. A wage contract means you get paid a certain amount over some span of time irrespective of your performance, i.e. $h=l$. A fixed rent contract is just that, where your rent is exacted from your output. The downside is if your output is zero, you still pay; i.e. $H-R$ or $0-R$. Landlords and tenants can also sharecrop, which is to simply share a predetermined amount of your output. Either way, how much you're paid depends on how much you've made.
+
+If a landlord is responsible for tending their land, their income can be modeled as $eH + (1-e)0 - \frac{1}{2}ce^2$. Their effort $e$ corresponds to their expected produce, though in this case we have a binary model of success or failure ($H$ for high output, or $0$ for none at all). If we maximize our effort, we get
+
+
+$\max_e eH + (1-e)0 - \frac{1}{2}ce^2 = 0$
+
+$= \frac{H}{c} = e^*$.
+
+This is how much effort the landlord would put in were he responsible for all the work. He'd just work as much as possible.
+
+Now if we account for a tenant, we can adjust their high and low payments and see how that affects their effort. The landlord will want to maximize these to eek out as much effort as possible.
+
+The tenant's utility is similar to the landlord's utility above, except that instead of multiplying effort by high and low output, we multiply effort by high and low payment:
+
+$eh + (1-e)l - \frac{1}{2}ce^2$.
+
+Note that in both the landlord's and tenant's utility functions, the more that effort, $e$, grows, the more $(1-e)$ shrinks. When $(1-e)$ multiplies the low yield result, that low yield is worth less because you tried harder for it, and for what? Some bullshit. Or at least that's one way to look at it. In any case, high effort means higher probability of high output.
+
+Anyway, back to the tenant's utility function. If we maximize $eh + (1-e)l - \frac{1}{2}ce$ with respect to $e$ (meaning we hold all else constant), we get
+
+$\max_e eh - (1-e)l - \frac{1}{2}ce^2 = 0$
+
+$1*h + (0 - 1)l - \frac{1}{2}c2e = 0$
+
+$h - l - ce = 0$
+
+$h - l = ce$
+
+$\frac{h - l}{c} = e^t$
+
+That's how much the tenant will work. Take the difference between high and low payments and divide it by the cost of effort.
+
+Since the landlord's ideal situation is $\frac{H}{c}$, we can set it equal to $\frac{h-l}{c}$. This gets us $h - l = H$. If we can fulfill this condition, we gucci. Turns out we can do so by using a fixed rent contract, where the tenant walks away with whatever they make minus their rent. That's because their $h$ would be $H$ and their $l$ would be $0$. $H-0 = H$. They'd be what is known as a *residual claimant*. They keep all fruits of *additional* labor over and above what they pay for rent. As noted earlier, this is simplified and far from perfect...after all, how do they pay $R$ when they made no money? It's a shit contract.
+
+One counter to this is a limited liability constraint, which sets a lower bound to how much you can get paid. This is analogous to bankruptcy.
+
+This is where we run into the finicky areas of this problem. Because of the limited liability constraint, we know the ideal maximization problems are no longer viable.
+
+The landlord wants to maximize their income. Their income in the best case scenario is the high yield, minus how much they pay the tenant. $(H-h)$. This has probability $e$, so we get $e(H-h)$. They have a $(1-e)$ chance of low yield, low income, so $(1-e)(0-l)$ (since we set $0$ equal to low yield). Combined, we get $e(H-h) - (1-e)(-l)$. If the tenant is paid $0$, we're left with $e(H-h)$. Because the tenant's effort is maximized by $\frac{h-l}{c}$, but $l = 0$, the tenant's optimal effort is $\frac{h}{c}$. Substituting this into $e(H-h)$, we get $\frac{h}{c} * (H-h)$. This is what he'll maximize wrt $h$, since he wants to get the tenant to work as much as possible. So 
+
+$\max_h \frac{h}{c} * (H-h)$
+    
+$= \frac{1}{c}(H-h) + \frac{h}{c}(-1)$
+
+$= \frac{H-h}{c} + (-\frac{h}{c})$
+
+$= \frac{H-h}{c} - \frac{h}{c}$
+
+$= H-h = h$
+
+$H - 2h = 0$
+
+$H = 2h$
+
+$\frac{H}{2} = h^*$
+
+This is the optimal pay when the tenant gets $0$ for low yield. Plugging this optimal pay into the tenant's optimal effort scheme, where they're paid $0$ in the case of low output, we get
+
+$\frac{h - 0}{c}$
+
+$= \frac{H}{2} * \frac{1}{c}$
+
+$\frac{H}{2c} = e^{t*}$ i.e. how hard the tenant will try when paid $0$ for low yield.
+
+Land reform, West Bengal:
+
+Tenants guaranteed 3/4 of output (bargaining power effect). Can't be thrown out if they meet that 3/4 output quota (security of tenure effect).
+
+Results:
+
+Threats to tenants went down; share of output went up
+
+Used Bangladesh as a counterfactual. Difference-in-difference approach.
+
+Difficulty: many policies, maybe this  one not responsible.
+
+Another approach to measure effects: output based on registration rates. Comparing districts w/ average districts, accounting for time effect.
++35% productivity even controlling for factors such as sharecropping or rainfall
+
+
+--
+Risk averse people make different choices. Think on the distinction between LLC and sliced incentives, versus risk averse profiles. Risk averse people unwilling to take land that increases risk, or their risk profiles may change upon becoming richer
+
+Implications: redistribute land, maybe more productive b/c they care more about the land and owners treat their own land differently, but not necessarily b/c of risk profiles (this is too much risk). however, someone's income/job doesn't necessarily reflect risk profile, e.g. born poorer so less land so become tenant
+
+---
+Property Rights:
+
+If you take land, people grow uncertain towards security.
+
+Ghana trees; some lands that are community-owned. Output was no different between public and privately land.
+    
+
+Fences and barbed wire in the Kansas plains improved output. (Hornbeck 2008)
+
+
+"Findings from Hornbeck (2008) provide some support for the fact that more secure property rights encourages investments in land. Prior to the use of barbed wire for fencing, most areas in the US relied on wood materials for building fences. Presumably, areas that had less access to wood would have been at a disadvantage compared to those areas that had ready access to wood for building fences. Following the introduction of barbed wire into the market as a material that can be used for protecting private land, those areas that had less access to wood made greater investments in their land than did areas that had greater access to wood. The interpretation of this is that once owners could more easily and cheaply protect their lands, they were compelled to invest more heavily in that land. Conversely, when they were unable to reliable protect their private lands, they had less of an incentive or reason to protect that land."
+
+[article needs finishing]
+

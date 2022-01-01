@@ -1,0 +1,129 @@
+---
+title: "mutual"
+date:
+tags: ["complex_data"]
+published: true
+---
+import MyPop from '../components/popover.js'
+
+<MyPop text="Surely this joke isn't overused.">A self-referencing function is a function that refers to itself.</MyPop> It'll operate on a list that itself contains more lists (e.g. ListOfColor is either `empty` or `cons Color ListOfColor`). Through the principle of induction, we can be certain that the sub-lists will yield to the function just the same as their parent lists, until they arrive at some base case. These lists are horizontal.
+
+Mutual reference means two data types that refer to each other. For example, if "ListOfElement" contains type "Element," and type "Element" contains type "ListOfElement." This allows the cycle between these two to be arbitrarily deep, or vertical.
+
+It can be helpful to draw out the connections between data types. We begin by drawing up data definitions and their corresponding templates for our mutually recursive functions.
+
+```scheme
+;; Data definitions
+(define-struct elt (name data subs))
+;; Element is (make-elt String Integer ListOfElement)
+;; interpretation: an element in the file system that has a name and
+;; either data or subs. If data is 0, then subs is treated as a list
+;; of sub elements. If data isn't 0, then subs is ignored.
+
+;; ListOfElement is one of
+;; - empty
+;; - (cons Element ListOfElement)
+
+(define (fn-for-element e)
+    (... (elt-name e)
+         (elt-data e)
+         (fn-for-loe (elt-subs loe))))
+
+(define (fn-for-loe loe)
+  (cond [(empty? loe) (...)]
+        [else
+          (... (fn-for-element (first loe))
+               (fn-for-loe (rest loe)))]))
+```
+
+<hr/>
+If a tree that has some elements in it, but each element may contain further lists of elements, that's an arbitrary arity tree. There will be a back-and-forth  between the element and its list of elements (and vice versa) until we arrive at our desired result. 
+
+For example,
+
+```scheme
+(define F1 (make-elt "F1" 1 empty))
+(define F2 (make-elt "F2" 2 empty))
+(define F3 (make-elt "F3" 3 empty))
+(define D4 (make-elt "D4" 0 (list F1 F2)))
+(define D5 (make-elt "D5" 0 (list F3)))
+(define D6 (make-elt "D6" 0 (list D4 D5)))
+```
+Elements can be either "F's" (files) or "D's" (directories). Directories have "0" for data, indicating they have no data, but that they do have sub-elements. For example, D4 contains files F1 and F2. Note that the files are the very bottom of the tree, and their data are integers (1, 2, 3).
+
+If we want to sum all the data in a tree represented as above, we can do so as follows
+
+```scheme
+;; Element -> Integer
+;; produce sum of all data in element and its sub-lists of elements
+(check-expect (sum-data--loe empty) 0)  ;; if there's nothing else in the list, there's nothing more to add, i.e. 0
+(check-expect (sum-data--element F1) 1)
+(check-expect (sum-data--element D5) 3)
+(check-expect (sum-data--element D4) (+ 1 2))
+(check-expect (sum-data--element D6) (+ 1 2 3))
+
+(define (sum-data--element e)
+      (if (zero? (elt-data e))          ;; 0 indicates there's no data, but there is a list
+          (sum-data--loe (elt-subs e))  ;; since there's a list, call the ListOfElement function on it -- it can then add what remains in elt-subs
+          (elt-data e)))                ;; If we've reached the file data, there's no further searching to be done, since the files are at the bottom of the tree
+
+(define (sum-data--loe loe)
+  (cond [(empty? loe) 0]                    ;; list is empty, nada to add
+        [else
+         (+ (sum-data--element (first loe))  ;; list isn't empty, meaning it has either a file or further directories. If it has file, we get to
+                                            ;; add the file's data. If it has more subdirectories, we'll recurse through them, "trusting the natural/mutual recursion"
+            (sum-data--loe (rest loe)))]))
+```
+
+<br/>
+<h3>Backtracking Search:</h3>
+
+
+
+```scheme
+;; String Element -> Integer or false
+;; String ListOfElement -> Integer or false
+;; search a tree for an element with the given name; produce the data if found, false otherwise
+
+(check-expect (find--loe "F3" empty) false)
+(check-expect (find--element "F1" F1) 1)
+(check-expect (find--loe "F2" (cons F1 (cons F2 empty))) 2)
+(check-expect (find--loe "F3" (cons F1 (cons F2 empty))) false)
+(check-expect (find--element "F3" D4) false)
+(check-expect (find--element "F2" D4) 2)
+(check-expect (find--element "F3" D5) 3)
+(check-expect (find--element "D6" D6) 0)
+
+;(define (find--element str elt) #false) ;stubs
+;(define (find--element str loe) #false) 
+
+(define (find--element str e)
+  (if (string=? str (elt-name e))
+      (elt-data e)
+      (find--loe str (elt-subs e))))
+#| If the string equals the current name, then we've found it,
+end of. Otherwise we begin to check the list.
+|#
+
+(define (find--loe str loe)
+  (cond [(empty? loe) false]
+        [else
+         (if  (not (false? (find--element str (first loe))))
+              (find--element str (first loe))
+              (find--loe str (rest loe)))]))
+
+#|
+If we reach the an empty list, our search has come up short.
+It coming up short means to yield false.
+
+If we didn't reach an empty list, we check the first element.
+We trust our mutual recursion and let our find--element
+function return either false or something else.
+
+If it doesn't return false, we found our element.
+
+If it does, we perform the same routine on the rest of the list.
+
+
+|#
+```

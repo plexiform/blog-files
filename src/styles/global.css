@@ -1,9 +1,5 @@
-html {
-    background-color:mintcream;
-}
-
-h1, h2, h3, h4 {
-    color:#2196c4;
+h1, h2, h3, h4, h5 {
+  color:rgb(59, 169, 22)
 }
 
 ul {
@@ -17,4 +13,52 @@ ul li::before {
     display: inline-block;
     width: 1em;
     margin-left: -1em;
+}
+
+.pops:hover {
+    cursor:zoom-in;
+    font-weight:bold;
+    text-decoration:underline;
+    text-decoration-style:dotted;
+    text-decoration-color:cornflowerblue;
+}
+
+/*
+.MuiPopover-paper {
+    box-sizing:border-box;
+    border:2px dotted cornflowerblue;
+}
+*/
+
+.Mui-selected {
+  background:#9c9c9c
+}
+
+.MuiButtonBase-root {
+  background:#1d1d1d
+}
+
+.MuiButtonBase-root, .Mui-selected {
+  background:cornflowerblue
+}
+
+.MuiTabs-scroller {
+  background:#1d1d1d
+}
+
+.MuiTabs-indicator {
+  background-color:white
+}
+
+.MuiTypography-root {
+  color: white
+}
+
+#vertical-tabpanel-0 {
+  background: #1d1d1d
+}
+
+.MuiBox-root {
+  font-style:italic;
+  background:#1d1d1d
 }

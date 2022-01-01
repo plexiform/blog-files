@@ -8,8 +8,11 @@ export default () => (
     <h3>Where I'm at:</h3>
     <ul>
         <li>Borderline obese (with some muscle) (180 lbs @ 5'4")</li>
-        <li>Programming skills: beginner (uncompleted intro courses, JS bootcamp)</li>
+        <li>Programming skills: beginner (uncompleted intro courses, JS bootcamp) - next steps: finishing HtC and proceeding to PAPL + Sedgwick algorithms will shift me to an intermediate skill level</li>
         <li>Highschool dropout</li>
+        <li>Next to no real world experience</li>
+        <li></li>
+        <li></li>
         <li>Value: Accomplished, mastery in systems and probabilistic modeling. ATM: check [link to goals] (move tools in principles to goals?)</li>
         <li>Value: Speaking my truth; standing up for my values. ATM: More confrontational than before, open to speaking my mind.</li>
         <li></li>

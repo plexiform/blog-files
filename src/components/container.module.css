@@ -1,27 +1,27 @@
-.container {
-  margin: 3rem auto;
-  max-width: 600px;
-}
-
 .body {
+    font-family: "LiterataVariable";
+    font-variation-settings: "wght" 250;
+    font-weight:400;
+    font-size:20.5px;
     margin: 0 auto;
     padding: 15px;
     max-width: 810px;
-    color:darkslateblue;
 }
 
+a {
+    color:dimgray;
+}
+
+
 .link {
-    color:mintcream;
+    font-family: "LiterataVariable";
+    font-variation-settings:"wght" 200;
+    font-size: 20.5px;
     text-decoration:none;
     padding:7px;
     text-hover: black;
 }
 
 .link:hover {
-    background-color:lightblue;
-    color:darkslateblue;
-}
-
-.thistle {
-    color:thistle;
+    color:rgb(59, 169, 22)
 }

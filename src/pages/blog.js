@@ -8,16 +8,19 @@ export default ({ data }) => {
   return (
     <Layout>
       <div>
-        <h1
+        <p
           css={css`
+            font-family:"LiterataVariable";
+            font-style:italic;
+            font-size:2em;
             display: inline-block;
-            border-bottom: 1px solid;
+
           `}
         >
           Motley Meanderings
-        </h1>
-        <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
+        </p>
+        <p>{data.allMdx.totalCount} Posts</p>
+        {data.allMdx.edges.map(({ node }) => (
           <div key={node.id}>
             <Link
               to={node.fields.slug}
@@ -26,21 +29,31 @@ export default ({ data }) => {
                 color: inherit;
               `}
             >
-            <h3
-              css={css`
+              <p
+                css={css`
                 margin-bottom: ${rhythm(1 / 4)};
               `}
-            >
-              {node.frontmatter.title}{" "}
-              <span
-                css={css`
+              >
+                <span
+                  css={css`
+                font-family:"LiterataVariable";
+                font-variation-settings:"wght" 400;
+                font-style:italic;
+                font-size:1.15em;
+                color:rgb(59, 169, 22)
+              `}
+                >
+                  {node.frontmatter.title}{" "}
+                </span>
+                <span
+                  css={css`
                   color: thistle;
                 `}
-              >
-                — {node.frontmatter.date}
-              </span>
-            </h3>
-            <p>{node.excerpt}</p>
+                >
+                  — {node.frontmatter.date}
+                </span>
+              </p>
+              <p>{node.excerpt}</p>
             </Link>
           </div>
         ))}
@@ -49,9 +62,10 @@ export default ({ data }) => {
   )
 }
 
+
 export const query = graphql`
   {
-    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       edges {
         node {
           fields {
@@ -59,8 +73,8 @@ export const query = graphql`
           }
           excerpt
           frontmatter {
-            date(formatString: "DD MMMM, YYYY")
             title
+
           }
           id
         }
@@ -69,3 +83,5 @@ export const query = graphql`
     }
   }
 `
+// (formatString: "DD MMMM, YYYY")
+// date
