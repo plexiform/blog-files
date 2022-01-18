@@ -6,6 +6,10 @@ ul {
     list-style: none;
 }
 
+hr {
+  background-color:cornflowerblue;
+}
+
 ul li::before {
     content: "\2022";
     color:thistle;

@@ -6,7 +6,7 @@ published: true
 ---
 import MyPop from '../components/popover.js'
 
-<MyPop text="Surely this joke isn't overused.">A self-referencing function is a function that refers to itself.</MyPop> It'll operate on a list that itself contains more lists (e.g. ListOfColor is either `empty` or `cons Color ListOfColor`). Through the principle of induction, we can be certain that the sub-lists will yield to the function just the same as their parent lists, until they arrive at some base case. These lists are horizontal.
+<MyPop notes="Surely this joke isn't overused." edits="n/a">A self-referencing function is a function that refers to itself.</MyPop> It'll operate on a list that itself contains more lists (e.g. ListOfColor is either <code class="language-scheme">empty</code> or <code class="language-scheme">cons Color ListOfColor</code>). Through the principle of induction, we can be certain that the sub-lists will yield to the function just the same as their parent lists, until they arrive at some base case. These lists are horizontal.
 
 Mutual reference means two data types that refer to each other. For example, if "ListOfElement" contains type "Element," and type "Element" contains type "ListOfElement." This allows the cycle between these two to be arbitrarily deep, or vertical.
 
