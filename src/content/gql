@@ -1,0 +1,8 @@
+---
+title: "GraphQL"
+date:
+tags: ["web_dev"]
+published: true
+---
+
+GraphQL is an API standard that simplifies client-server interactions. It minimizes the amount of overhead you get from your requests, as well as the amount of requests you have to make in the first place. It does this by exposing one endpoint, rather than many, which is enforced through typed contracts.

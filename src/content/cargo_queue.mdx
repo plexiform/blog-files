@@ -7,3 +7,30 @@ published: true
 
 Async, queues, cargos, workers
 
+We define our asynchronous function.
+```javascript
+  function fileComplaint(karen, callback) { 
+    if (!karen) {
+
+      // callback is being invoked with just the first arg,
+      // which is our err parameter (by convention)
+      callback('o no our complaint filing system is down');
+    } else {
+      callback()
+    }
+  }
+```
+
+We invoke our asynchronous function.
+```javascript
+  fileComplaint('call the manager', function(err, res) {
+
+    // fileComplaint's function definition above determines  
+    // if we get an error here
+    if (err) {
+      console.log(err);
+    } else {
+      
+    }
+  })
+```

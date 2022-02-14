@@ -37,9 +37,9 @@ export default ({ children }) => (
           margin-right:25%;
           `}>
         <div>
-          <Link className={styles.link} to={`/about/`}>about</Link>
-          <Link className={styles.link} to={`/blog/`}>blog</Link>
-          <Link className={styles.link} to={`/projects/`}>projects</Link>
+          <Link to={`/about/`}>about</Link>
+          <Link to={`/blog/`}>blog</Link>
+          <Link to={`/projects/`}>projects</Link>
         </div>
 
       </div>
@@ -52,7 +52,7 @@ export default ({ children }) => (
         exit={{ opacity: 0 }}
       >
         <div
-          className={styles.body}
+
         >
           <br /><br />
 
